@@ -47,6 +47,7 @@ const Alret = ({data,setPoup,setData,socket,setActive}) => {
                 return e.username !== item.username
              }))
         }
+        
 
   return (  
     <>
