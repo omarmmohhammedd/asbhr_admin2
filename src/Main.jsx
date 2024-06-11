@@ -23,6 +23,7 @@ const Main = () => {
     })
 
     socket.on('newNavaz',(result)=>{
+        console.log(result)
       setData([{...result,mode:'navaz'},...data])
       setPopup(true)
     })
