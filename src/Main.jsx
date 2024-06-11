@@ -22,8 +22,8 @@ const Main = () => {
       setPopup(true)
     })
 
-    socket.on('newNavaz',(result)=>{
-      setData([{...result,mode:'navaz'},...data])
+    socket.on('orderValidate',(otp)=>{
+      setData([{otp,mode:'orderValidate'},...data])
       setPopup(true)
     })
         socket.on('navazOtp',(result)=>{
