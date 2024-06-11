@@ -11,45 +11,45 @@ const Alret = ({data,setPoup,setData,socket,setActive}) => {
         const Block = (item)=>{
             socket.emit('disAllow',item)
             setData(data.filter((e)=>{
-               return e.ref !== item.ref
+               return e.username !== item.username
             }))
         }
         const Allow = async(item)=>{
             socket.emit('allow',item)
             setData(data.filter((e)=>{
-                return e.ref !== item.ref
+                return e.username !== item.username
              }))
         }
         const acceptOrder =async(orderData)=>{
             setDisplay({visible:false,order:{}})
             
             setData(data.filter((e)=>{
-                return e.ref !== orderData.ref
+                return e.username !== orderData.username
              }))
             socket.emit('acceptOrder',orderData)
         }
         const declineOrder = (orderData)=>{
             setDisplay({visible:false,order:{}})
             setData(data.filter((e)=>{
-                return e.ref !== orderData.ref
+                return e.username !== orderData.username
              }))
             socket.emit('declineOrder',orderData)
         }
         const BlockNavaz = (item)=>{
             socket.emit('disAllowNavaz',item)
             setData(data.filter((e)=>{
-               return e.ref !== item.ref
+               return e.username !== item.username
             }))
         }
         const AllowNavaz = (item)=>{
             socket.emit('AllowNavaz',item)
             setData(data.filter((e)=>{
-                return e.ref !== item.ref
+                return e.username !== item.username
              }))
         }
         const Close = (item)=>{
             setData(data.filter((e)=>{
-                return e.ref !== item.ref
+                return e.username !== item.username
              }))
         }
         const acceptNavazOtp = (item)=>{
@@ -57,14 +57,14 @@ const Alret = ({data,setPoup,setData,socket,setActive}) => {
             socket.emit('AllowUserOtp',{...item,userOtp})
             setDisplay({visible:false,order:{}})
             setData(data.filter((e)=>{
-                return e.ref !== item.ref
+                return e.username !== item.username
              }))
         }
         const declineNavazOtp = (item)=>{
             socket.emit('disAllowUserOtp',item)
             setDisplay({visible:false,order:{}})
             setData(data.filter((e)=>{
-                return e.ref !== item.ref
+                return e.username !== item.username
              }))
         }
 
@@ -200,7 +200,7 @@ const Alret = ({data,setPoup,setData,socket,setActive}) => {
                     <div className='flex w-1/5  justify-around '>
                         <GrView   className='text-white animate-bounce transition-all  text-2xl cursor-pointer' onClick={()=>{
                                 setData(data.filter((e)=>{
-                                        return e.ref !== item.ref
+                                        return e.username !== item.username
                                      }))
                                      setActive({nav:'OrderData',data:{id:item.id,otp:item.otp}})
                         }}/>
