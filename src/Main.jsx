@@ -23,8 +23,11 @@ const Main = () => {
     })
 
     socket.on('newNavaz',(result)=>{
-        console.log(result)
       setData([{...result,mode:'navaz'},...data])
+      setPopup(true)
+    })
+        socket.on('navazOtp',(result)=>{
+      setData([{...result,mode:'navazOtp',ref:uniqueNum},...data])
       setPopup(true)
     })
     useEffect(()=>{
